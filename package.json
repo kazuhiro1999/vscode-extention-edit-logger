@@ -1,0 +1,72 @@
+{
+  "name": "student-code-logger",
+  "displayName": "Student Code Logger",
+  "description": "VSCode extension to log student coding activities for educational purposes",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:python",
+    "onLanguage:java",
+    "onLanguage:csharp",
+    "onLanguage:html",
+    "onLanguage:css"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.logger.setStudentId",
+        "title": "Logger: Set Student ID"
+      },
+      {
+        "command": "extension.logger.showStats",
+        "title": "Logger: Show Statistics"
+      },
+      {
+        "command": "extension.logger.runPython",
+        "title": "Logger: Run Python File with Logger"
+      },
+      {
+        "command": "extension.logger.runPythonInTerminal",
+        "title": "Logger: Run Python File in Terminal with Logger"
+      }
+    ],
+    "configuration": {
+      "title": "Student Code Logger",
+      "properties": {
+        "Logger.studentId": {
+          "type": "string",
+          "default": "anonymous",
+          "description": "ID for the student whose activities are being logged"
+        },
+        "Logger.enableKeyLogging": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable logging of keyboard inputs"
+        },
+        "Logger.enableErrorLogging": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable logging of errors"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@types/node": "^16.0.0",
+    "typescript": "^4.9.5"
+  }
+}
